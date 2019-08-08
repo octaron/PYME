@@ -789,7 +789,9 @@ def csc():
     else:
         return render_template('csc.html', forma=forma,l_fac=l_fac,l_sec=l_sec)
 ############################
+#Acá debe ir la vista del registro de clientes:
 
+#############################
 #Ingresar Estructura contable (Cuentas padre-hijo)
 @app.route('/agregar_estructura_ubd',methods=['GET','POST'])
 @login_required
