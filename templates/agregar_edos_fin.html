@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+
+<div class="jumbotron formulario">
+  <h1>Carga de los Estados Financieros</h1>
+  <h3>Indica el archivo con la información contable</h3>
+  <form  method="POST" action="" enctype="multipart/form-data">
+
+    <br>
+    {{edos_fin.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+<b>
+  <strong>{{edos_fin.accion.label}}</strong>  <br>{{edos_fin.accion()}}
+</b>
+<b><strong>{{edos_fin.id_if.label}}</strong>  <br>{{edos_fin.id_if()}}</b>
+<b><strong>{{edos_fin.anio.label}}</strong>  <br>{{edos_fin.anio()}}</b>
+<b><strong>{{edos_fin.mes.label}}</strong>  <br>{{edos_fin.mes()}}</b>
+
+<b> </b>
+    <strong>{{edos_fin.archivo.label}}</strong>  <br>{{edos_fin.archivo()}}
+    <ul>
+    {% for error in edos_fin.archivo.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+<br>
+    {{edos_fin.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+</div>

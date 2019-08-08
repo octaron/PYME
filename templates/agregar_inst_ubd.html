@@ -1,0 +1,69 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Alta instituciones UBD</h1>
+  <h3>Por favor proporciona la información solicitada</h3>
+  <form  method="POST">
+    <br>
+    {{inst_ubd.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{inst_ubd.accion.label}}</strong>  {{inst_ubd.accion()}}
+    <hr class="my-4">
+    <h4>Modificar información</h4>
+    <strong>{{inst_ubd.inst_ubd_mod.label}}</strong>  {{inst_ubd.inst_ubd_mod(class="form-control")}} <br>
+    <hr class="my-4">
+    <h4>Información de la institución</h4>
+
+
+    <strong>{{inst_ubd.nom_leg.label}}</strong> {{inst_ubd.nom_leg(class="form-control",placeholder="Nombre legal de la institución")}}
+    <ul>
+    {% for error in inst_ubd.nom_leg.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{inst_ubd.nom_com.label}}</strong> {{inst_ubd.nom_com(class="form-control",placeholder="Nombre común o acrónimo")}} <br>
+    <ul>
+    {% for error in inst_ubd.nom_com.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+    <strong>{{inst_ubd.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>

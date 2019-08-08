@@ -1,0 +1,107 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Alta  de intermediarios financieros</h1>
+  <h3>Proporciona la información solicitada</h3>
+  <form  method="POST">
+    <br>
+    {{if_forma.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{if_forma.accion.label}}</strong>  {{if_forma.accion()}}
+    <hr class="my-4">
+    <h4>Modificar información</h4>
+
+    <strong>{{if_forma.if_mod.label}}</strong>  {{if_forma.if_mod(class="form-control")}} <br>
+    <hr class="my-4">
+    <h4>Información del intermediario</h4>
+
+
+    <strong>{{if_forma.nom_leg.label}}</strong> {{if_forma.nom_leg(class="form-control",placeholder="Nombre legal del intermediario")}}
+    <ul>
+    {% for error in if_forma.nom_leg.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{if_forma.nom_com.label}}</strong> {{if_forma.nom_com(class="form-control",placeholder="Nombre comercial")}} <br>
+    <ul>
+    {% for error in if_forma.nom_com.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{if_forma.apoderado_leg.label}}</strong> {{if_forma.apoderado_leg(class="form-control",placeholder="Nombres y apellidos")}} <br>
+    <ul>
+    {% for error in if_forma.apoderado_leg.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{if_forma.direc.label}}</strong> {{if_forma.direc(class="form-control",placeholder="Domicilio completo")}} <br>
+    <ul>
+    {% for error in if_forma.direc.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{if_forma.tel.label}}</strong> {{if_forma.tel(class="form-control",placeholder="Teléfono de contacto")}} <br>
+    <ul>
+    {% for error in if_forma.tel.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{if_forma.web.label}}</strong> {{if_forma.web(class="form-control",placeholder="Sitio web oficial")}} <br>
+    <ul>
+    {% for error in if_forma.web.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{if_forma.tipo.label}}</strong> {{if_forma.tipo(class="form-control",placeholder="Tipo de intermediario")}} <br>
+    <ul>
+    {% for error in if_forma.tipo.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+    <strong>{{if_forma.realizar(class="btn btn-outline-primary")}}
+
+<br><br>
+ <a href="/agregar_if_masivo" class="alert-link"> Carga masiva de intermediarios financieros</a> <br> <br>
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>

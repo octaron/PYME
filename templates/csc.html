@@ -1,0 +1,68 @@
+{% macro mostar_factor(factor) %}
+
+  <strong>{{ factor.label }}</strong>  <br>{{ factor(class="form-control")|safe}} <br>
+
+{% endmacro %}
+
+
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+
+<div class="jumbotron formulario">
+  <h1>Cuestionario</h1>
+  <h3>Selecciona la respuesta</h3>
+  <form  method="POST" action="" enctype="multipart/form-data">
+
+    <br>
+    {{forma.hidden_tag()}}
+    
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+{%for sec in l_sec%}
+  <h4>{{sec[1].label}}</h4>
+   <br>
+
+  {% for factor in l_fac %}
+      {% if factor[0]==sec[0]%}
+        {{mostar_factor(factor[1])}}
+      {% endif %}
+
+  {% endfor %}
+<br>
+{% endfor %}
+
+    {{forma.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+</div>

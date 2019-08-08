@@ -1,0 +1,55 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Registrarse</h1>
+  <h3></h3>
+  <br>
+  <form  method="POST">
+    {{registro.hidden_tag()}}
+
+{% for m in get_flashed_messages() %}
+
+{% if m[0]==false%}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>¡Lo sentimos!</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+{% else %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+{% endif %}
+    {{ m[1] }}
+
+    </div>
+{% endfor %}
+  
+    <strong>{{registro.email.label}}</strong> {{registro.email(class="form-control")}} <br>
+    <strong>{{registro.usuario.label}}</strong> {{registro.usuario(class="form-control")}} <br>
+    <strong>{{registro.password.label}}</strong> {{registro.password(class="form-control")}} <br>
+    <strong>{{registro.confirm_password.label}}</strong> {{registro.confirm_password(class="form-control")}} <br>
+
+    <ul>
+    {% for error in registro.password.errors %}
+    <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+    {{registro.registrar(class="btn btn-outline-primary")}} <br>
+
+</form>
+</div>
+<br><br><br>
+{% endblock %}
+
+
+</div>

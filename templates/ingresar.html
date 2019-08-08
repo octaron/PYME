@@ -1,0 +1,52 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Ingresar</h1>
+  <h3>Indica tu correo electrónico y contraseña:</h3>
+  <br>
+  <form  method="POST">
+
+    {{entrar.hidden_tag()}}
+
+    {% for m in get_flashed_messages() %}
+
+    {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>¡Lo sentimos!</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+{% else %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong></strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+
+  </button>
+{% endif %}
+      {{ m[1] }}
+      </div>
+    {% endfor %}
+
+    <strong>{{entrar.email.label}}</strong> {{entrar.email(class="form-control")}} <br>
+    <strong>{{entrar.password.label}}</strong> {{entrar.password(class="form-control")}} <br>
+
+     <a href="/cambiar_password" class="alert-link">Cambiar contraseña</a> <br> <br>
+     ¿Olvidaste tu contraseña? <a href="/recuperar_password" class="alert-link"> Recupérala aquí</a> <br> <br>
+     ¿Eres nuevo? <a href="/registro" class="alert-link"> Regístrate aquí</a> <br> <br>
+
+    {{entrar.ingresar(class="btn btn-outline-primary")}} <br>
+
+
+</form>
+</div>
+
+{% endblock %}
+<br><br><br><br><br>
+</div>

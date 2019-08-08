@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+
+<div class="jumbotron formulario">
+  <h1>Carga masiva de la estructura contable</h1>
+  <h3>Indica el archivo con la estructura de cuentas</h3>
+  <form  method="POST" action="" enctype="multipart/form-data">
+
+    <br>
+    {{estructura_ubd_forma_masiva.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+<b>
+  <strong>{{estructura_ubd_forma_masiva.accion.label}}</strong>  <br>{{estructura_ubd_forma_masiva.accion()}}
+
+</b><b>
+
+    <strong>{{estructura_ubd_forma_masiva.archivo.label}}</strong>  <br>{{estructura_ubd_forma_masiva.archivo()}}
+    <ul>
+    {% for error in estructura_ubd_forma_masiva.archivo.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+<br>
+    {{estructura_ubd_forma_masiva.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+</div>

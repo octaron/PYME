@@ -1,0 +1,63 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Alta tipo de intermediario financiero</h1>
+  <h3>Proporciona el tipo de intermediario financiero susceptible de recibir créditos de segundo piso</h3>
+  <form  method="POST">
+    <br>
+    {{tipo_if.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{tipo_if.accion.label}}</strong>  {{tipo_if.accion()}}
+    <hr class="my-4">
+    <h4>Modificar información</h4>
+    <strong>{{tipo_if.tipo_mod.label}}</strong>  {{tipo_if.tipo_mod(class="form-control")}} <br>
+    <hr class="my-4">
+    <h4>Tipo de intermediario</h4>
+
+
+    <strong>{{tipo_if.tipo.label}}</strong> {{tipo_if.tipo(class="form-control",placeholder="Puedes usar acrónimos o nombres largos")}}
+    <ul>
+    {% for error in tipo_if.tipo.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+
+
+    <strong>{{tipo_if.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>

@@ -1,0 +1,86 @@
+.general{
+  /*background-image: url('https://images.unsplash.com/photo-1526542073161-ace7a478afc1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e6b774f9ac31695ad8382aacf500fef&auto=format&fit=crop&w=1369&q=80');*/
+  background-image: url(fondo_principal.jpg);
+  background-size:cover;
+  background-blend-mode: color;
+  /*Sirve para fijar la imagen del background: */
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+}
+.letra_principal{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.formulario{
+  background-size:cover;
+  background: rgb(243, 241, 232);
+  opacity: 0.9;
+}
+
+.marca{
+  font-family: 'Lobster', cursive;
+  color:rgb(30, 185, 209);
+  /*color: rgb(250, 249, 243);*/
+  font-size: 50px;
+  text-decoration: none;
+}
+
+.marca:hover{
+  text-decoration: none;
+  color:rgb(30, 185, 209);
+}
+
+.lista_clases{
+  transition: all 0.5s ease;
+  cursor:pointer;
+}
+
+.lista_clases:hover{
+  font-size: 150%;
+}
+
+/* Dando formato a las anclas de la clase "lista_clases" */
+.lista_clases a{
+  text-decoration: none;
+  color:black;
+}
+
+.lista_clases a:hover{
+  text-decoration: none;
+  color:black;
+}
+
+div.quienes_somos{
+  text-decoration: none;
+}
+
+#p1 {
+  width: 50%;
+}
+
+#foto_qs {
+  background-color: red;
+  background-image: url(https://scontent.fmex7-1.fna.fbcdn.net/v/t1.0-9/15622245_1281695845210497_149629578480007475_n.jpg?_nc_cat=101&_nc_pt=1&_nc_ht=scontent.fmex7-1.fna&oh=04cde45532175a9765153d9018887f02&oe=5CB1EB31);
+  width: 200px;
+  height: 200px;
+
+}
+.lista_precios {
+
+}
+.foto_clase{
+  width:auto;
+  height: auto;
+  background-color:;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+.opinion{
+     /*font-family: 'Amatic SC', cursive;*/
+    font-family: 'Bad Script', cursive;
+    font-size: 30px;
+    text-align: center;
+    padding: 10%;
+    
+}

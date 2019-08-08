@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--link rel="stylesheet" href="../static/formatos.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <link href="../static/formatos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Bad+Script" rel="stylesheet">
+
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-light bg-ligh" >
+      <a  class="marca" href="">
+          <img src="https://scontent.fmex7-1.fna.fbcdn.net/v/t1.0-9/10924790_832149773498442_8363536164567999580_n.jpg?_nc_cat=100&_nc_pt=1&_nc_ht=scontent.fmex7-1.fna&oh=c5ad1844d34e41be441e28dbad868511&oe=5C6D4D6A" width="80" height="80" class="" alt=""> Banco del Bienestar </a>
+          <!--img src="https://images.unsplash.com/photo-1526542073161-ace7a478afc1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e6b774f9ac31695ad8382aacf500fef&auto=format&fit=crop&w=1369&q=80"
+          width="80" height="80" class="d-inline-block align-top" alt=""-->
+      </nav>
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark letra_principal" >
+        <div class="navbar-nav">
+         <a class="nav-item nav-link" href="{{url_for('inicio')}}">Inicio</a>
+
+          <!--a class="nav-item nav-link" href="static/index.html">Prueba</a -->
+
+
+{% if current_user.is_authenticated %}
+
+          <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Apéndice I
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="{{url_for('agregar_secciones')}}">Secciones</a>
+                    <a class="dropdown-item" href="{{url_for('agregar_factores')}}">Factores</a>
+                    <a class="dropdown-item" href="{{url_for('agregar_respuestas')}}">Respuestas</a>
+
+                   <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="{{url_for('csc')}}">Score de crédito</a>
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Cargar Balanzas de Comprobación</a>
+
+                   </div>
+               </li>
+
+
+<!--
+          <a class="nav-item nav-link" href="{{url_for('inicio')}}">Rentas</a>
+
+          <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Entradas y salidas
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Agregar concepto</a>
+                   <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Registro de movimientos de efectivo</a>
+                   </div>
+               </li>
+
+
+          <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Inventario
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Administrar inventario</a>
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Agregar paquetes de servicios</a>
+                   <div class="dropdown-divider"></div>
+                   <a class="dropdown-item" href="{{url_for('inicio')}}">Editar paquetes de servicios</a>
+                   </div>
+                 -->
+               </li>
+
+               <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Administración
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{url_for('inicio')}}">Administrar usuarios</a>
+                        <a class="dropdown-item" href="{{url_for('inicio')}}">Consultar información</a>
+                        <a class="dropdown-item" href="{{url_for('inicio')}}">Configurar sitio web</a>
+
+                    </li>
+
+               <a class="nav-item nav-link" href="{{url_for('salir')}}">Salir</a>
+               <a class="nav-item nav-link" href="{{url_for('agregar_secciones')}}">Agregar secciones</a>
+               v<a class="nav-item nav-link" href="{{url_for('agregar_factores')}}">Agregar factores</a>
+               <a class="nav-item nav-link" href="{{url_for('agregar_respuestas')}}">Agregar respuestas</a>
+               <a class="nav-item nav-link" href="{{url_for('csc')}}">Score de crédito</a>
+
+        {% else %}
+        <a class="nav-item nav-link" href="{{url_for('entrar')}}">Entrar</a>
+
+        {% endif %}
+
+
+        </div>
+
+      </nav>
+
+
+    {% block contenido %}
+
+
+    {% endblock %}
+
+    <footer>
+      <address class="formulario">
+        <p>Banco del Bienestar</p>
+        <p>54813300</p>
+
+      </address>
+
+
+    </footer>
+
+  </body>
+</html>

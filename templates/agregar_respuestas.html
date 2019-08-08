@@ -1,0 +1,83 @@
+
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Catálogo de respuestas</h1>
+  <h3>Indica las respuestas de cada factor de evaluación y sus puntajes</h3>
+  <form  method="POST">
+    <br>
+
+
+    {{forma.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{forma.accion.label}}</strong>  {{forma.accion()}}
+    <hr class="my-4">
+
+    <strong>{{forma.sec.label}}</strong>  {{forma.sec(class="form-control")}} <br>
+    <hr class="my-4">
+
+    <strong>{{forma.fac.label}}</strong>  {{forma.fac(class="form-control")}} <br>
+    <hr class="my-4">
+
+    <h4>Modificar información</h4>
+
+
+    <strong>{{forma.resp_mod.label}}</strong>  {{forma.resp_mod(class="form-control")}} <br>
+    <hr class="my-4">
+    <h4>Respuesta</h4>
+
+
+    <strong>{{forma.resp.label}}</strong> {{forma.resp(class="form-control",placeholder="Anota la respuesta")}} <br>
+    <ul>
+    {% for error in forma.resp.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+    <strong>{{forma.puntos.label}}</strong> {{forma.puntos(class="form-control",placeholder="Puntos")}} <br>
+    <ul>
+    {% for error in forma.puntos.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+    <strong>{{forma.realizar(class="btn btn-outline-primary")}}
+
+<br><br>
+ <a href="/agregar_respuestas_masivo" class="alert-link"> Carga masiva de respuestas</a> <br> <br>
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>
