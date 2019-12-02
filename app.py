@@ -19,6 +19,7 @@ from flask import make_response
 from flask import request
 import ast
 
+# Renglón de prueba para git
 #CREANDO TABLAS:
 db.create_all()
 nombre_BD='MiPYMEBD.sqlite'
