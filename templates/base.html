@@ -21,7 +21,8 @@
 
     <nav class="navbar navbar-light bg-ligh" >
       <a  class="marca" href="">
-          <img src="https://scontent.fmex7-1.fna.fbcdn.net/v/t1.0-9/10924790_832149773498442_8363536164567999580_n.jpg?_nc_cat=100&_nc_pt=1&_nc_ht=scontent.fmex7-1.fna&oh=c5ad1844d34e41be441e28dbad868511&oe=5C6D4D6A" width="80" height="80" class="" alt=""> Banco del Bienestar </a>
+        <img src="../static/logo.png" width="200" height="80" class="" alt="">  </a>
+
           <!--img src="https://images.unsplash.com/photo-1526542073161-ace7a478afc1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e6b774f9ac31695ad8382aacf500fef&auto=format&fit=crop&w=1369&q=80"
           width="80" height="80" class="d-inline-block align-top" alt=""-->
       </nav>
@@ -38,16 +39,19 @@
 
           <li class="nav-item dropdown">
                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Apéndice I
+                   Solicitud
                  </a>
                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <a class="dropdown-item" href="{{url_for('agregar_secciones')}}">Secciones</a>
-                    <a class="dropdown-item" href="{{url_for('agregar_factores')}}">Factores</a>
-                    <a class="dropdown-item" href="{{url_for('agregar_respuestas')}}">Respuestas</a>
+                   
+                    <a class="dropdown-item" href="{{url_for('agregar_solicitud')}}">Llenar solicitud</a>
+                    <a class="dropdown-item" href="{{url_for('agregar_documentos')}}">Adjuntar documentos</a>
+                    <a class="dropdown-item" href="{{url_for('agregar_documentos_exp')}}">Adjuntar documentos exp</a>
+                    <a class="dropdown-item" href="{{url_for('descarga_solicitud')}}">Descargas</a>
+
 
                    <div class="dropdown-divider"></div>
-                   <a class="dropdown-item" href="{{url_for('csc')}}">Score de crédito</a>
-                   <a class="dropdown-item" href="{{url_for('inicio')}}">Cargar Balanzas de Comprobación</a>
+                   <a class="dropdown-item" href="{{url_for('csc')}}">Evaluación de crédito</a>
+                   
 
                    </div>
                </li>
@@ -80,26 +84,41 @@
                    </div>
                  -->
                </li>
-
+               {% if current_user.perfil=='Administrador' %}
                <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administración
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{url_for('agregar_sepomex')}}">SEPOMEX</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="{{url_for('catalogo_documentos')}}">Catálogo de documentos</a>
+
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="{{url_for('modificar_umbral')}}">Modificar umbral</a>
+                        <a class="dropdown-item" href="{{url_for('agregar_secciones')}}">Agregar secciones</a>
+                        <a class="dropdown-item" href="{{url_for('agregar_factores')}}">Agregar factores</a>
+                        <a class="dropdown-item" href="{{url_for('agregar_respuestas')}}">Agregar respuestas</a>
+
+                        <div class="dropdown-divider"></div>
+
                         <a class="dropdown-item" href="{{url_for('inicio')}}">Administrar usuarios</a>
-                        <a class="dropdown-item" href="{{url_for('inicio')}}">Consultar información</a>
-                        <a class="dropdown-item" href="{{url_for('inicio')}}">Configurar sitio web</a>
+                        
+                        <a class="dropdown-item" href="{{url_for('config_email')}}">Configurar sitio web</a>
 
                     </li>
 
+              {% endif %}
+               <a class="nav-item nav-link" href="{{url_for('reportes')}}">Consultar información</a>     
                <a class="nav-item nav-link" href="{{url_for('salir')}}">Salir</a>
-               <a class="nav-item nav-link" href="{{url_for('agregar_secciones')}}">Agregar secciones</a>
-               v<a class="nav-item nav-link" href="{{url_for('agregar_factores')}}">Agregar factores</a>
-               <a class="nav-item nav-link" href="{{url_for('agregar_respuestas')}}">Agregar respuestas</a>
-               <a class="nav-item nav-link" href="{{url_for('csc')}}">Score de crédito</a>
+            
 
         {% else %}
         <a class="nav-item nav-link" href="{{url_for('entrar')}}">Entrar</a>
+        
 
         {% endif %}
 

@@ -1,9 +1,16 @@
 fac_id,resp,puntos
-2,Las cuentas de los cinco principales consumidores son menores a 25% de las ventas,60
-2,R2,20
-1,R6,10
-1,R7,30
-6,R1,4
-5,f8,60
-6,F2,90
-,,89
+1,<12 meses,20
+1,1 a 2 años,35
+1,3 a 5 años,50
+1,6 a 10 años,70
+1,>10 años,100
+2,Menudeo,20
+2,Manufactura,40
+2,Mayoreo,30
+2,Servicios,20
+2,Agricultura,10
+3,Un solo producto/Una sola marca,30
+3,Un solo producto/Muchas marcas,40
+3,Productos múltiples,50
+4,Estacional,0
+4,No estacional,100

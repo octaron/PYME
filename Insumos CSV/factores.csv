@@ -1,8 +1,7 @@
 sec_id,fac,desc,puntos
-1,F3,fsfsdfs,10
-1,f4,sdfsdfasd,20
-1,f5,sdfsdfs,10
-2,f6,sddfasd,30
-2,f7,dfasdf,4
-2,f8,dfad,60
-,f9,sdfsad,90
+1,Antigüedad del negocio,Antigüedad del negocio en meses,0.2
+1,Tipo de negocio,sdfsdfasd,0.1
+2,Tipo de oferta del producto/servicio,sdfsdfs,0.1
+2,Estacionalidad del producto,sddfasd,0.1
+2,¿Está chido tu negocio?,hihi,20
+10000,umbral_k,umbral de crédito,50

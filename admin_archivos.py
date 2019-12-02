@@ -53,3 +53,32 @@ class Subir_archivos():
 #Una vez almacenada la información en un DataFrame, se borra del servidor el archivo
 #recién subido
     #os.remove(destino)
+    def agregar_doc_digital(self,carpeta,archivo,nvo_nombre,ancho,alto,formato):
+        #nombre_archivo=archivo.filename
+        #ext_tipo=nombre_archivo.split('.')[-1]
+        nombre_almacenamiento=str(nvo_nombre)+'.'+formato
+        print(nombre_almacenamiento)
+
+        self.carpeta=carpeta
+        #self.archivo=archivo
+
+        APP_ROOT=os.path.dirname(os.path.abspath(__file__))
+        self.target=os.path.join(APP_ROOT,self.carpeta)
+
+        if not os.path.isdir(self.target):
+            os.mkdir(self.target)
+
+        self.nombre_archivo=nombre_almacenamiento
+        print(self.nombre_archivo)
+        self.destino="/".join([self.target,self.nombre_archivo])
+        print(self.destino)
+        #output_size=(ancho,alto)
+        #doc=Image.open(archivo)
+        #doc.thumbnail(output_size)
+        try:
+            archivo.save(self.destino)
+        except AttributeError:
+            pass
+        else:
+            self.x='Archivo subido al servidor'
+            self.mensaje=[True,self.x]

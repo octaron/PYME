@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+
+<div class="jumbotron formulario">
+  <h1>Configuración del sitio</h1>
+  <h3>Indica la cuenta de correo institucional así como el fondo principal</h3>
+  <form  method="POST">
+    <br>
+    {{config_email.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{config_email.email.label}}</strong>  {{config_email.email(class="form-control")}}
+    <ul>
+    {% for error in config_email.email.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+    <strong>{{config_email.password.label}}</strong>  {{config_email.password(class="form-control")}}
+    <ul>
+    {% for error in config_email.password.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+ <a href="/config_fondo" class="alert-link"> Cambiar la imagen de fondo</a> <br> <br>
+
+<br>
+    {{config_email.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+</div>

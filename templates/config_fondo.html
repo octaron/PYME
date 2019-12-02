@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+
+<div class="jumbotron formulario">
+  <h1>Configuración de la imagen de fondo</h1>
+  <h3>Indica la imagen de fondo institucional</h3>
+  <form  method="POST" action="" enctype="multipart/form-data">
+    <br>
+    {{config_fondo.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{config_fondo.fondo_principal.label}}</strong>  <br>{{config_fondo.fondo_principal()}}
+    <ul>
+    {% for error in config_fondo.fondo_principal.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+    </ul>
+
+
+<br>
+    {{config_fondo.actualizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+</div>

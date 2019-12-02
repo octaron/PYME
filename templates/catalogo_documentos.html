@@ -1,0 +1,66 @@
+
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Documentos solicitados</h1>
+  <h3>Proporciona la lista de documentos solicitados para el expediente digital</h3>
+  <form  method="POST">
+    <br>
+
+
+    {{forma.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{forma.accion.label}}</strong>  {{forma.accion()}}
+    
+    <hr class="my-4">
+    <h4>Agregar documento</h4>
+    <strong>{{forma.tipo.label}}</strong> {{forma.tipo(class="form-control")}} <br>
+    <strong>{{forma.documento.label}}</strong> {{forma.documento(class="form-control")}}
+
+    <hr class="my-4">
+    <h4>Eliminar documento</h4>
+    <strong>{{forma.documento_mod.label}}</strong>  {{forma.documento_mod(class="form-control")}} <br>
+    
+    <ul>
+    {% for error in forma.documento.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    
+    <strong>{{forma.realizar(class="btn btn-outline-primary")}}
+
+<br><br>
+ 
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>

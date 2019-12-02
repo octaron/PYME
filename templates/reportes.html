@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Consulta de información</h1> <br>
+  <h4>Selecciona el reporte que deseas consultar</h4>
+  <form  method="POST">
+    <br>
+    {{generar_reportes.hidden_tag()}}
+
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% endif %}
+          {{ m[1] }}
+      </div>
+  {% endfor %}
+
+    <strong>{{generar_reportes.reporte.label}} </strong>{{generar_reportes.reporte(class="form-control")}} <br>
+
+
+    {{generar_reportes.realizar(class="btn btn-outline-primary")}} <br><br>
+
+    Para el desarrollador: <a href="/definir_reportes" class="alert-link"> Definir reportes</a> <br> <br>
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>

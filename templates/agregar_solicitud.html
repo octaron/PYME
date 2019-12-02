@@ -1,0 +1,137 @@
+﻿{% extends 'base.html' %}
+{% block contenido %}
+<div class="general">
+
+<div class="jumbotron formulario">
+  <h1>Solicitud de crédito</h1>
+  <h3>Proporciona la información solicitada</h3>
+  <form  method="POST">
+    <br>
+
+
+    {{forma.hidden_tag()}}
+    {% for m in get_flashed_messages() %}
+      {% if m[0]==false%}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong></strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+
+          </button>
+      {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+
+          </button>
+
+      {% endif %}
+          {{ m[1] }}
+      </div>
+
+    {% endfor %}
+
+
+    <strong>{{forma.accion.label}}</strong>  {{forma.accion()}}
+    <hr class="my-4">
+
+    <strong>{{forma.ap_paterno.label}}</strong>  {{forma.ap_paterno(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.ap_paterno.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.ap_materno.label}}</strong>  {{forma.ap_materno(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.ap_materno.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.nombres.label}}</strong>  {{forma.nombres(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.nombres.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.curp.label}}</strong>  {{forma.curp(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.curp.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.rfc.label}}</strong>  {{forma.rfc(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.rfc.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.nss.label}}</strong>  {{forma.nss(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.nss.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+    <strong>{{forma.edo_civil.label}}</strong>  {{forma.edo_civil()}} <br>
+    <strong>{{forma.dia_nac.label}}</strong>  {{forma.dia_nac(class="form-control")}} <br>
+    <strong>{{forma.mes_nac.label}}</strong>  {{forma.mes_nac(class="form-control")}} <br>
+    <strong>{{forma.anio_nac.label}}</strong>  {{forma.anio_nac(class="form-control")}} <br>
+    <hr class="my-4">
+
+    <strong>{{forma.c_estado.label}}</strong>  {{forma.c_estado(class="form-control")}} <br>
+
+  <strong>{{forma.buscar_mun(class="btn btn-outline-primary")}} <br><br>
+    <strong>{{forma.c_mnpio.label}}</strong> {{forma.c_mnpio(class="form-control")}} <br>
+
+    <strong>{{forma.buscar_tipo_asenta(class="btn btn-outline-primary")}} <br><br>
+    {{forma.c_tipo_asenta(class="form-control")}} <br>
+
+    <strong>{{forma.buscar_asenta(class="btn btn-outline-primary")}} <br><br>
+    {{forma.id_asenta_cpcons(class="form-control")}} <br>
+
+    <strong>{{forma.calle.label}}</strong>  {{forma.calle(class="form-control")}} <br>
+    <ul>
+    {% for error in forma.calle.errors %}
+      <li style="color:red;"> {{ error }} </li>
+    {% endfor %}
+  </ul>
+  <strong>{{forma.n_ext.label}}</strong>  {{forma.n_ext(class="form-control")}} <br>
+  <ul>
+  {% for error in forma.n_ext.errors %}
+    <li style="color:red;"> {{ error }} </li>
+  {% endfor %}
+</ul>
+<strong>{{forma.n_int.label}}</strong>  {{forma.n_int(class="form-control")}} <br>
+<ul>
+{% for error in forma.n_int.errors %}
+  <li style="color:red;"> {{ error }} </li>
+{% endfor %}
+</ul>
+<strong>{{forma.tel.label}}</strong>  {{forma.tel(class="form-control")}} <br>
+<ul>
+{% for error in forma.tel.errors %}
+  <li style="color:red;"> {{ error }} </li>
+{% endfor %}
+</ul>
+<strong>{{forma.email.label}}</strong>  {{forma.email(class="form-control")}} <br>
+<ul>
+{% for error in forma.email.errors %}
+  <li style="color:red;"> {{ error }} </li>
+{% endfor %}
+</ul>
+
+
+
+
+    <strong>{{forma.realizar(class="btn btn-outline-primary")}}
+
+
+  </form>
+
+</div>
+
+{% endblock %}
+
+
+</div>
