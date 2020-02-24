@@ -1,7 +1,7 @@
 alembic==0.9.9
 attrs==19.3.0
 backcall==0.1.0
-bleach==3.1.0
+bleach==3.1.1
 blinker==1.4
 certifi==2019.6.16
 chardet==3.0.4
